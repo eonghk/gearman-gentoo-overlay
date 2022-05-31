@@ -4,7 +4,7 @@
 
 EAPI=7
 
-inherit flag-o-matic libtool user systemd toolchain-funcs
+inherit flag-o-matic libtool user systemd toolchain-funcs autotools
 
 DESCRIPTION="Generic framework to farm out work to other machines"
 HOMEPAGE="http://www.gearman.org/"
@@ -50,6 +50,9 @@ src_configure() {
 		append-cppflags -DDEBUG
 	fi
 	#autotools-utils_src_configure
+	econf \
+		--with-mysql
+		--disable-static
 }
 
 src_test() {
@@ -67,8 +70,7 @@ src_test() {
 DOCS=( AUTHORS ChangeLog )
 
 src_install() { 
-	default
-
+	emake DESTDIR="${D}" install
 	#autotools-utils_src_install
 
 	newinitd "${FILESDIR}"/gearmand.init.d.2 gearmand
