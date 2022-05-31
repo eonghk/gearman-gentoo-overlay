@@ -1,0 +1,11 @@
+--- libgearman-server/struct/gearmand.h.orig	2013-03-21 05:41:06.916182672 +0000
++++ libgearman-server/struct/gearmand.h	2013-03-21 05:41:16.556228065 +0000
+@@ -93,7 +93,7 @@
+     thread_add_next(NULL),
+     free_dcon_list(NULL)
+   {
+-    if (host)
++    if (host_)
+     {
+       host= strdup(host_);
+     }

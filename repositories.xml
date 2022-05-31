@@ -1,0 +1,14 @@
+<?xml version="1.0" ?>
+<repositories version="1.0">
+  <repo quality="experimental" status="unofficial">
+    <name>gearman-gentoo-overlay</name>
+      <description lang="en">Gearman Gentoo Overlay.</description>
+        <homepage>https://github.com/eonghk/gearman-gentoo-overlay</homepage>
+        <owner type="person">
+            <name>eong</name>
+            <email>eong.chen@gmail.com</email>
+        </owner>
+        <source type="git">git://github.com/eonghk/gearman-gentoo-overlay.git</source>
+        <feed>https://github.com/eonghk/gearman-gentoo-overlay/commits/master.atom</feed>
+  </repo>
+</repositories>

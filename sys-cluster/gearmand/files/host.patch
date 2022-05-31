@@ -1,0 +1,11 @@
+--- libgearman-server/struct/gearmand.h.orig	2014-12-04 10:45:10.950357180 +0000
++++ libgearman-server/struct/gearmand.h	2014-12-04 10:45:33.679638123 +0000
+@@ -188,7 +188,7 @@
+ 
+   ~gearmand_st()
+   {
+-    if (host_)
++    if (host)
+     {
+       free(host);
+     }
