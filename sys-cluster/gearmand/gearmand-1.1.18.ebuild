@@ -13,13 +13,13 @@ SRC_URI="https://github.com/gearman/gearmand/releases/download/${PV}/gearmand-${
 LICENSE="MIT"
 SLOT="0"
 KEYWORDS="amd64 x86"
-IUSE="debug +memcache drizzle sqlite tokyocabinet postgres"
+IUSE="debug memcache mysql mysqli sqlite tokyocabinet postgres"
 
 RDEPEND="dev-libs/libevent
 	>=dev-libs/boost-1.39:=[threads(+)]
 	|| ( >=sys-apps/util-linux-2.16 <sys-libs/e2fsprogs-libs-1.41.8 )
 	memcache? ( >=dev-libs/libmemcached-0.47 )
-	drizzle? ( dev-db/drizzle )
+	mysql? ( || ( mysqli pdo ) )
 	sqlite? ( dev-db/sqlite:3 )
 	tokyocabinet? ( dev-db/tokyocabinet )
 	postgres? ( >=dev-db/postgresql-base-9.0 )"
@@ -38,7 +38,7 @@ src_configure() {
 		$(use_enable postgres libpq)
 		$(use_enable tokyocabinet libtokyocabinet)
 		$(use_with sqlite sqlite3)
-		--with-mysql
+		${use_with mysql mysql}
 		--disable-static
 	)
 
