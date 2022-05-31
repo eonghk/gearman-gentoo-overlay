@@ -4,7 +4,7 @@
 
 EAPI=7
 
-inherit flag-o-matic libtool user toolchain-funcs
+inherit flag-o-matic libtool user systemd toolchain-funcs
 
 DESCRIPTION="Generic framework to farm out work to other machines"
 HOMEPAGE="http://www.gearman.org/"
@@ -13,13 +13,13 @@ SRC_URI="https://github.com/gearman/gearmand/releases/download/${PV}/gearmand-${
 LICENSE="MIT"
 SLOT="0"
 KEYWORDS="amd64 x86"
-IUSE="debug memcache mysql mysqli sqlite tokyocabinet postgres"
+IUSE="debug memcache mysql sqlite tokyocabinet postgres"
 
 RDEPEND="dev-libs/libevent
 	>=dev-libs/boost-1.39:=[threads(+)]
 	|| ( >=sys-apps/util-linux-2.16 <sys-libs/e2fsprogs-libs-1.41.8 )
 	memcache? ( >=dev-libs/libmemcached-0.47 )
-	mysql? ( || ( mysqli pdo ) )
+	mysql? ( virtual/mysql )
 	sqlite? ( dev-db/sqlite:3 )
 	tokyocabinet? ( dev-db/tokyocabinet )
 	postgres? ( >=dev-db/postgresql-base-9.0 )"
@@ -33,12 +33,11 @@ pkg_setup() {
 
 src_configure() {
 	local myeconfargs=(
-		$(use_enable drizzle libdrizzle)
 		$(use_enable memcache libmemcached)
 		$(use_enable postgres libpq)
 		$(use_enable tokyocabinet libtokyocabinet)
 		$(use_with sqlite sqlite3)
-		${use_with mysql mysql}
+		--with-mysql
 		--disable-static
 	)
 
