@@ -7,7 +7,7 @@ PHP_EXT_INI="yes"
 PHP_EXT_ZENDEXT="no"
 PHP_EXT_S="${WORKDIR}/pecl-gearman-gearman-${PV}"
 
-USE_PHP="php7-1 php7-2 php7-3 php7-4 php8-0"
+USE_PHP="php7-4 php8-0 php8-1"
 
 inherit php-ext-pecl-r3
 
