@@ -13,7 +13,7 @@ inherit php-ext-pecl-r3
 
 DESCRIPTION="PHP extension for gearman"
 HOMEPAGE=""
-SRC_URI="https://github.com/wcgallego/pecl-gearman/archive/gearman-${PV}.zip"
+SRC_URI="https://github.com/php/pecl-networking-gearman/archive/refs/tags/gearman-${PV}.zip"
 
 LICENSE="PHP-3"
 SLOT="0"
