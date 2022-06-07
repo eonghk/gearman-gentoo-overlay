@@ -5,7 +5,7 @@ EAPI=7
 PHP_EXT_NAME="gearman"
 PHP_EXT_INI="yes"
 PHP_EXT_ZENDEXT="no"
-PHP_EXT_S="${WORKDIR}/pecl-gearman-gearman-${PV}"
+PHP_EXT_S="${WORKDIR}/pecl-networking-gearman-gearman-${PV}"
 
 USE_PHP="php7-4 php8-0 php8-1"
 
@@ -23,4 +23,4 @@ IUSE=""
 DEPEND=""
 RDEPEND="${DEPEND}"
 
-S="${WORKDIR}/pecl-gearman-gearman-${PV}"
+S="${WORKDIR}/pecl-networking-gearman-gearman-${PV}"
